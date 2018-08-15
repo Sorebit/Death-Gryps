@@ -2170,12 +2170,20 @@
   const GRYPS_COUNT = 5;
   const linesCount = lines.length;
   const l = document.getElementsByClassName('list')[0];
+  let indices = [];
+
   for(let i = 0; i < GRYPS_COUNT; i++) {
-    const ind = Math.floor(Math.random() * linesCount);
+    let ind = Math.floor(Math.random() * linesCount);
+    while(indices.indexOf(ind) >= 0) ind = Math.floor(Math.random() * linesCount);
+    indices.push(ind);
+
+    let line = lines[ind];
+    line = line.substr(0, 1).toUpperCase() + line.substr(1);
+
     const e = document.createElement('div');
     e.classList += 'list-item';
     const p = document.createElement('p');
-    p.innerText = lines[ind];
+    p.innerText = line;
     e.appendChild(p);
     l.appendChild(e);
   }
