@@ -23,10 +23,13 @@ body {
   display: flex;
 }
 
+main {
+  display: none;
+}
+
 .cover-container {
   max-width: 42em;
 }
-
 
 /*
  * Header
