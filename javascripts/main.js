@@ -2187,10 +2187,13 @@
 
       let line = lines[ind];
       line = line.substr(0, 1).toUpperCase() + line.substr(1);
+      if(indices.length == 1) {
+        line = '<span class="lead font-italic"><span class="text-primary">Słowo dnia: </span>' + line + '</span>';
+      }
 
       const e = $('<div class="list-item">');
       const p = $('<p>');
-      p.text(line);
+      p.html(line);
       e.append(p);
       l.append(e);
     }
